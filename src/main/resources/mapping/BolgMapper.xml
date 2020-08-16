@@ -62,13 +62,17 @@
 
     <!--更新博客-->
     <update id="updateBlog">
-        update t_blog set  title=#{title},content=#{content},first_picture=#{firstPicture},flag=#{flag},appreciation=#{appreciation},share_statement=#{shareStatement},commentabled=#{commentabled},commentabled=#{commentabled},published=#{published},recommend=#{recommend},description=#{description},type_id=#{typeId},tag_ids=#{tagIds},update_time=#{updateTime} where id=#{id}
+        update t_blog set  title=#{title},content=#{content},first_picture=#{firstPicture},flag=#{flag},
+        appreciation=#{appreciation},share_statement=#{shareStatement},commentabled=#{commentabled},
+        commentabled=#{commentabled},published=#{published},recommend=#{recommend},description=#{description},
+        type_id=#{typeId},tag_ids=#{tagIds},update_time=#{updateTime} where id=#{id}
     </update>
 
     <!--后台搜索博客-->
     <select id="searchBlog" resultMap="BaseResultMap">
-        <bind name="pattern" value="'%' + title + '%'" />
-        select a.id,a.title,a.recommend,a.published,a.update_time,b.id as typeId,b.name as typeName from t_blog a,t_type b
+        <bind name="pattern" value="'%' + title + '%'"/>
+        select a.id,a.title,a.recommend,a.published,a.update_time,b.id as typeId,b.name as typeName from t_blog a,t_type
+        b
         <where>
             <if test="1 == 1">
                 a.type_id = b.id
@@ -84,9 +88,6 @@
             </if>
         </where>
     </select>
-
-
-
 
     <!--查询博客数量-->
     <select id="countBlog" resultType="java.lang.Integer">
@@ -104,22 +105,42 @@
     </select>
 
 
-    <!--通过分类编号获取博客列表-->
+    <!--通过分类编号获取博客列表 fixme 尝试用左连接修改 -->
     <select id="getBlogByTypeId" resultMap="BaseResultMap">
         select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname from t_blog b,t_type t,t_user u
         where b.type_id=t.id and b.user_id=u.id and b.type_id=#{typeId} and b.published=1
     </select>
 
-    <!--通过标签编号获取博客列表-->
-    <select id="getBlogByTagId" resultMap="BaseResultMap">
-        select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname from t_blog b,t_type t,t_user u
-        where b.type_id=t.id and b.user_id=u.id and FIND_IN_SET(#{tagId}, b.tag_ids) and b.published=1
+
+    <!--通过分类编号获取博客列表-->
+    <select id="getBlogByTypes" resultMap="BaseResultMap">
+        select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname
+        from t_blog b left join t_type t on b.type_id = t.id left join t_user u on  b.user_id = u.id
+        where
+        b.type_id in (
+        <foreach item="type" collection="types" open="(" separator="," close=")">
+            #{type.id}
+        </foreach>
+        )
+        and b.published = 1
     </select>
 
+    <!--通过标签编号获取博客列表-->
+    <!-- from t_blog b,t_type t,t_user u 属于隐式内连接，只有匹配的行，-->
+    <!-- 如果使用左外连接的话，左表所有的数据都加载，右表如果没有的话，就是null -->
+    <select id="getBlogByTagId" resultMap="BaseResultMap">
+    select
+        b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname
+    from
+        t_blog b left join t_type t on b.type_id = t.id left join t_user u on b.user_id=u.id
+    where
+        FIND_IN_SET(#{tagId}, b.tag_ids) and b.published=1
+    </select>
 
-    <!--前台获取博客信息-->
+    <!--前台获取博客信息 fixme 尝试用左连接修改-->
     <select id="getIndexBlog" resultMap="BaseResultMap">
-       select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname from t_blog b,t_type t,t_user u
+       select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname
+       from t_blog b,t_type t,t_user u
        where b.type_id=t.id and b.user_id=u.id and b.published=1 order by b.update_time desc
     </select>
 
@@ -129,13 +150,15 @@
         select id,title from t_blog where recommend=1 and published=1 order by update_time desc
     </select>
 
-    <!--前端全局搜索-->
+    <!--前端全局搜索 fixme 尝试用左连接修改-->
     <select id="searchIndexBlog" resultMap="BaseResultMap">
-        select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname from t_blog b,t_type t,t_user u
-        where b.type_id=t.id and b.user_id=u.id and b.published=1 and (b.title like CONCAT('%',#{query},'%') or b.content like CONCAT('%',#{query},'%')) order by b.update_time desc
+        select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname
+        from t_blog b,t_type t,t_user u
+        where b.type_id=t.id and b.user_id=u.id and b.published=1
+        and (b.title like CONCAT('%',#{query},'%') or b.content like CONCAT('%',#{query},'%')) order by b.update_time desc
     </select>
 
-    <!--获取博客详情-->
+    <!--获取博客详情 fixme 尝试用左连接修改-->
     <select id="getDetailedBlog" resultMap="BaseResultMap">
         select b.id,b.title,b.first_picture,b.flag,b.content,b.views,b.update_time,b.commentabled,b.appreciation,b.share_statement,b.tag_ids,
             u.avatar,u.nickname

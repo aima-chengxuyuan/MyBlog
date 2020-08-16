@@ -40,4 +40,10 @@
     </select>
 
 
+    <!--通过blogId查询所有顶级评论-->
+    <select id="getCommentByBlogId" resultMap="BaseResultMap">
+        select * from t_comment where blog_id=#{blogId} order by create_time desc
+    </select>
+
+
 </mapper>

@@ -3,45 +3,55 @@ package com.lz.service.impl;
 import com.lz.entity.Type;
 import com.lz.mapper.TypeMapper;
 import com.lz.service.TypeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * 博客类型操作实现类
+ *
+ * @author jc
+ */
 @Service
 public class TypeServiceImpl implements TypeService {
-    @Autowired
+
+    @Resource
     private TypeMapper typeMapper;
 
-    @Transactional
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public List<Type> getAllType() {
         return typeMapper.getAllType();
     }
 
-    @Transactional
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Type getTypeById(Long id) {
         return typeMapper.getTypeById(id);
     }
 
-    @Transactional
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Type getTypeByName(String name) {
         return typeMapper.getTypeByName(name);
     }
 
-    @Transactional
     @Override
-    public void saveType(Type type) { typeMapper.saveType(type); }
-    @Transactional
-    @Override
-    public void updateType(Type type) {//返回影响数据库行数
-         typeMapper.updateType(type);
+    @Transactional(rollbackFor = Exception.class)
+    public void saveType(Type type) {
+        typeMapper.saveType(type);
     }
-    @Transactional
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateType(Type type) {//返回影响数据库行数
+        typeMapper.updateType(type);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
     public void deleteType(Long id) {
         typeMapper.deleteType(id);
     }

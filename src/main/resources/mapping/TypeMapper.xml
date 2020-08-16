@@ -43,6 +43,7 @@
     </update>
 
     <!--删除分类-->
+    <!--    注意：删除操作一般不会物理删除，需要添加is_deleted字段，进行逻辑删除，0：未删除，1：已删除-->
     <delete id="deleteType">
         delete from t_type where id=#{id}
     </delete>

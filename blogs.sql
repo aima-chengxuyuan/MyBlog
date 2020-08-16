@@ -20,6 +20,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for t_blog
 -- ----------------------------
+-- ！！！禁止使用外键
+-- tags_id 逗号分割是一种很不好的做法，一旦数据量大的话，只是查看为了博客标签和博客关联的话，性能比较查，
+-- 可以考虑另外起一张博客与tag的关联表，tagId-blogId，多对多的关系
+-- 但是考虑博客表的数据不会太多，所以没有必要新建关联表
 DROP TABLE IF EXISTS `t_blog`;
 CREATE TABLE `t_blog`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
@@ -41,9 +45,7 @@ CREATE TABLE `t_blog`  (
   `tag_ids` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '标签编号1,2,3',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_type`(`type_id`) USING BTREE,
-  INDEX `fk_user`(`user_id`) USING BTREE,
-  CONSTRAINT `fk_type` FOREIGN KEY (`type_id`) REFERENCES `t_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  INDEX `fk_user`(`user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -89,6 +91,7 @@ INSERT INTO `t_comment` VALUES (11, '用户1', '670551262@qq.com', '你好', '/i
 -- ----------------------------
 -- Table structure for t_tag
 -- ----------------------------
+-- 每张表都要加上update_time 和 create_time，is_deleted（用于逻辑删除）
 DROP TABLE IF EXISTS `t_tag`;
 CREATE TABLE `t_tag`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',

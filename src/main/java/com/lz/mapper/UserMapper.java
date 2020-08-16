@@ -8,5 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 @Mapper
 public interface UserMapper {
-    User login(@Param("username") String username,@Param("password") String password);
+
+    /**
+     * 登录
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    User login(@Param("username") String username, @Param("password") String password);
 }

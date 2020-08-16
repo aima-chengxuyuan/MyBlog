@@ -25,6 +25,16 @@
         select * from t_tag where id=#{id}
     </select>
 
+    <!--通过多个编号获取标签-->
+    <select id="getTagsByIds" resultMap="BaseResultMap">
+        select * from t_tag where id
+        IN (
+        <foreach item="item" collection="tagIdList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+    </select>
+
     <!--通过标签名称获取标签-->
     <select id="getTagByName" resultMap="BaseResultMap">
         select * from t_tag where name=#{name}
@@ -41,7 +51,7 @@
     </delete>
 
     <!--<select id="getTag" resultType="com.lz.entity.Tag">-->
-        <!--select id,name from t_tag where id = #{id}-->
+    <!--select id,name from t_tag where id = #{id}-->
     <!--</select>-->
 
 </mapper>
