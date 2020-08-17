@@ -27,6 +27,7 @@ public interface BlogMapper {
      * 新增博客
      *
      * @param blog
+     * @return
      */
     void saveBlog(Blog blog);
 
@@ -127,6 +128,14 @@ public interface BlogMapper {
      * @return
      */
     List<Blog> searchIndexBlog(@Param("query") String query);
+
+    /**
+     * 通过博客id获取博客
+     *
+     * @param ids
+     * @return
+     */
+    List<Blog> queryBlogByIds(@Param("ids") List<Long> ids);
 
     /**
      * 获取博客详情

@@ -32,7 +32,7 @@ public interface TagMapper {
      * @param ids
      * @return
      */
-    List<Tag> getTagsByIds(@Param("ids") List<Long> ids);
+    List<Tag> getTagsByIds(@Param("tagIdList") List<Long> ids);
 
     /**
      * 通过name查询Tag

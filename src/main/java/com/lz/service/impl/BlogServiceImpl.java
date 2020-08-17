@@ -4,10 +4,13 @@ import com.lz.NotFoundException;
 import com.lz.entity.Blog;
 import com.lz.entity.Tag;
 import com.lz.entity.Type;
+import com.lz.es.document.EsBlog;
+import com.lz.es.service.EsBlogService;
 import com.lz.mapper.BlogMapper;
 import com.lz.service.BlogService;
 import com.lz.service.TagService;
 import com.lz.util.MarkdownUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -21,10 +24,14 @@ import java.util.*;
  * @author jc
  */
 @Service
+@Slf4j
 public class BlogServiceImpl implements BlogService {
 
     @Resource
     private BlogMapper blogMapper;
+
+    @Resource
+    private EsBlogService esBlogService;
 
     /**
      * @Autowired：ByType
@@ -42,15 +49,28 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public void saveBlog(Blog blog) {
         //这是新增
-        if (blog.getId() == null) {
-            blog.setCreateTime(new Date());
-            blog.setUpdateTime(new Date());
+        Date nowDate = new Date();
+        Long blogId = blog.getId();
+        if (blogId == null) {
+            blog.setCreateTime(nowDate);
+            blog.setUpdateTime(nowDate);
             blog.setViews(0);
             blogMapper.saveBlog(blog);
+            log.info("新增blogId:{}", blog.getId());
+            // 新增blog记录到es
+            EsBlog esBlog = new EsBlog();
+            esBlog.setId(Integer.parseInt(blog.getId().toString()));
+            esBlog.setTitle(blog.getTitle());
+            esBlog.setContent(blog.getContent());
+            esBlog.setUpdateTime(nowDate);
+            esBlog.setIsDeleted(0);
+
+            esBlogService.saveBlog(esBlog);
         }
         //更新的话 只要更新就行
         else {
-            blog.setUpdateTime(new Date());
+            esBlogService.updateBlog(Integer.parseInt(blogId.toString()), blog);
+            blog.setUpdateTime(nowDate);
         }
 
     }
@@ -63,6 +83,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public void deleteBlog(Long id) {
         blogMapper.deleteBlog(id);
+        esBlogService.deleteBlogs(Integer.parseInt(id.toString()));
     }
 
     @Override
@@ -105,7 +126,12 @@ public class BlogServiceImpl implements BlogService {
             Long typeId = blog.getTypeId();
             List<Blog> _blogs = typeIdBlogsMap.containsKey(typeId) ? typeIdBlogsMap.get(typeId) : new ArrayList<>();
             _blogs.add(blog);
-            typeIdBlogsMap.put(typeId,_blogs);
+            typeIdBlogsMap.put(typeId, _blogs);
+        });
+        types.forEach(type -> {
+            if (!typeIdBlogsMap.containsKey(type.getId())) {
+                typeIdBlogsMap.put(type.getId(), new ArrayList<>());
+            }
         });
         return typeIdBlogsMap;
     }
@@ -127,7 +153,18 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<Blog> searchIndexBlog(String query) {
-        return blogMapper.searchIndexBlog(query);
+        // 如果查询的是标签或内容,则从es中进行查询
+        Map<String, Object> keywordMap = new HashMap<>();
+        if (!StringUtils.isEmpty(query)) {
+            keywordMap.put("content", query);
+            keywordMap.put("title", query);
+        }
+        List<EsBlog> esBlogs = esBlogService.queryBlogs(keywordMap);
+        List<Long> ids = new ArrayList<>();
+
+        esBlogs.forEach(esBlog -> ids.add(Long.parseLong(esBlog.getId().toString())));
+        return blogMapper.queryBlogByIds(ids);
+//        return blogMapper.searchIndexBlog(query);
     }
 
     @Override

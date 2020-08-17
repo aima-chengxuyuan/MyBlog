@@ -8,9 +8,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  *
  * @author wayne
  */
-public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, Long> {
-
-
-
+public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, Integer> {
 
 }

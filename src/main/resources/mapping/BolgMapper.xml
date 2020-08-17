@@ -46,7 +46,7 @@
     </select>
 
     <!--新增博客,并获取主键-->
-    <insert id="saveBlog" useGeneratedKeys="true" keyProperty="id">
+    <insert id="saveBlog" useGeneratedKeys="true" keyProperty="id" >
         insert into t_blog values (null,#{title},#{content},#{firstPicture},#{flag},#{views},#{appreciation},#{shareStatement},#{commentabled},#{published},#{recommend},#{createTime},#{updateTime},#{description},#{typeId},#{userId},#{tagIds})
     </insert>
 
@@ -117,11 +117,10 @@
         select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname
         from t_blog b left join t_type t on b.type_id = t.id left join t_user u on  b.user_id = u.id
         where
-        b.type_id in (
+        b.type_id in
         <foreach item="type" collection="types" open="(" separator="," close=")">
             #{type.id}
         </foreach>
-        )
         and b.published = 1
     </select>
 
@@ -156,6 +155,16 @@
         from t_blog b,t_type t,t_user u
         where b.type_id=t.id and b.user_id=u.id and b.published=1
         and (b.title like CONCAT('%',#{query},'%') or b.content like CONCAT('%',#{query},'%')) order by b.update_time desc
+    </select>
+
+    <select id="queryBlogByIds" resultMap="BaseResultMap">
+        select b.id,b.title,b.first_picture,b.description,b.views,b.update_time,t.name as typeName,u.avatar,u.nickname
+        from t_blog b left join t_type t on b.type_id=t.id left join t_user u on b.user_id=u.id
+        where b.published=1 and b.id in
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        order by b.update_time desc
     </select>
 
     <!--获取博客详情 fixme 尝试用左连接修改-->
