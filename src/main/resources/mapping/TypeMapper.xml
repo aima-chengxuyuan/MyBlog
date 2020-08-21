@@ -3,7 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
 <mapper namespace="com.lz.mapper.TypeMapper">
     <resultMap id="BaseResultMap" type="com.lz.entity.Type">
         <id property="id" column="id"/>

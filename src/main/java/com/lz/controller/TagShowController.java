@@ -42,10 +42,11 @@ public class TagShowController {
             //自动选择第一个分标签，显示其下的博客
             id = tags.get(0).getId();
         }
-
+        //不是more进来的话，显示对应id的Tag
         PageHelper.startPage(pageNum, 5);
         List<Blog> blogs = blogService.getBlogByTagId(id);
         PageInfo<Blog> pageInfo = new PageInfo<>(blogs);
+        //通过tagid获取blog，再将blog设置为该tag的成员属性Blogs
         for (Tag tag : tags) {
             tag.setBlogs(blogService.getBlogByTagId(tag.getId()));
         }

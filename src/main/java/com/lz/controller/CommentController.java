@@ -63,6 +63,7 @@ public class CommentController {
         if (user != null) {
             //登录，则用用户设置的头像
             comment.setAvatar(user.getAvatar());
+            //是管理员评论
             comment.setAdminComment(true);
         } else {
             //是游客，使用默认的头像

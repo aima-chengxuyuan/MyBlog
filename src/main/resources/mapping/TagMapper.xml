@@ -3,7 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
 <mapper namespace="com.lz.mapper.TagMapper">
     <resultMap id="BaseResultMap" type="com.lz.entity.Tag">
         <id property="id" column="id"/>
@@ -32,7 +31,6 @@
         <foreach item="item" collection="tagIdList" open="(" separator="," close=")">
             #{item}
         </foreach>
-
     </select>
 
     <!--通过标签名称获取标签-->
@@ -50,8 +48,5 @@
         delete from t_tag where id=#{id}
     </delete>
 
-    <!--<select id="getTag" resultType="com.lz.entity.Tag">-->
-    <!--select id,name from t_tag where id = #{id}-->
-    <!--</select>-->
 
 </mapper>

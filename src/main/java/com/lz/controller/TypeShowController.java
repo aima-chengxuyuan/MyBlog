@@ -45,9 +45,9 @@ public class TypeShowController {
         }
 
         PageHelper.startPage(pageNum, 5);
+        //通过typeid获取对应的blogs
         List<Blog> blogs = blogService.getBlogByTypeId(id);
         PageInfo pageInfo = new PageInfo<>(blogs);
-
         for (Type type : types) {
             type.setBlogs(blogService.getBlogByTypeId(type.getId()));
         }

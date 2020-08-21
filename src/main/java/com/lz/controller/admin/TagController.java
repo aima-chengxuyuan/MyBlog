@@ -36,9 +36,11 @@ public class TagController {
         return "admin/tags";
     }
 
-    /**
-     * 跳转到新增页面
-     *
+    /**新增tag
+     * 1、新建一个tag，用来传递到前端
+     * 2、跳转到tag的编辑页面admin/tags-input.html,并将要添加的tag的数据回显在form表单中，此时tag的中的数据均为null
+     * 3、跳转到tag的编辑页面admin/tags-input.html后，通过post方式提交，form中的action为admin/tags)
+     * 4、然后会调用Post方法，对tag进行保存
      * @param model
      * @return
      */
@@ -49,9 +51,12 @@ public class TagController {
         return "admin/tags-input";
     }
 
-    /**
-     * 跳转到编辑页面,并将要修改的数据回显
-     *
+    /**编辑tag
+     * 1、通过id获取tag
+     * 2、跳转到tag的编辑页面admin/tags-input.html,并将要修改的tag的数据回显在form表单中
+     * 3、在form中填完数据后，通过post方式提交，form中的action为admin/tags/{id}(id=*{id})
+     * 4、然后会调用editpost方法，对tag进行保存
+     * form中action中
      * @param id
      * @param model
      * @return
@@ -90,7 +95,13 @@ public class TagController {
         }
     }
 
-    //编辑标签
+    /**
+     * 编辑标签
+     * @param tag
+     * @param attributes
+     * @param model
+     * @return
+     */
     @PostMapping("/tags/{id}")
     public String editPost(Tag tag, RedirectAttributes attributes, Model model) {
         String name = tag.getName();

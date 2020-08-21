@@ -1,173 +1,342 @@
-2020-08-09 09:48:57.003  WARN 17580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h37m12s692ms268µs809ns).
-2020-08-09 13:47:55.608  INFO 25408 --- [restartedMain] com.lz.BlogApplication                   : Starting BlogApplication on G1TWC9SIQP8HSZ7 with PID 25408 (E:\Github_Java\springboot合辑\个人博客2\8\blog-master\target\classes started by Administrator in E:\Github_Java\springboot合辑\个人博客2\8\blog-master)
-2020-08-09 13:47:55.612  INFO 25408 --- [restartedMain] com.lz.BlogApplication                   : The following profiles are active: dev
-2020-08-09 13:47:55.955  INFO 25408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-08-09 13:47:55.955  INFO 25408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-08-09 13:48:04.361  INFO 25408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-08-09 13:48:04.461  INFO 25408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-08-09 13:48:04.462  INFO 25408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-08-09 13:48:05.021  INFO 25408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-08-09 13:48:05.021  INFO 25408 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9066 ms
-2020-08-09 13:48:07.554  INFO 25408 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-09 13:48:08.033  INFO 25408 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-08-09 13:48:09.030  INFO 25408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-08-09 13:48:09.113  INFO 25408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-08-09 13:48:09.117  INFO 25408 --- [restartedMain] com.lz.BlogApplication                   : Started BlogApplication in 16.75 seconds (JVM running for 18.711)
-2020-08-09 13:48:15.990  INFO 25408 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-08-09 13:48:15.991  INFO 25408 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-08-09 13:48:16.022  INFO 25408 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 31 ms
-2020-08-09 13:48:17.849  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
-2020-08-09 13:48:17.875  INFO 25408 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-08-09 13:48:18.107  INFO 25408 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-08-09 13:48:18.346  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : index
-2020-08-09 13:48:20.420  INFO 25408 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 13:48:20.434  INFO 25408 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:03:38.808  INFO 25408 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
-2020-08-09 14:03:38.902  INFO 25408 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:03:39.239  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 1, {}]}
-2020-08-09 14:03:39.273  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:03:40.386  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:03:40.392  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:03:41.717  INFO 25408 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, -1, {}]}
-2020-08-09 14:03:41.793  INFO 25408 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : tags
-2020-08-09 14:03:42.131  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 1, {}]}
-2020-08-09 14:03:42.203  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : tags
-2020-08-09 14:03:42.992  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:03:43.000  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:03:43.477  INFO 25408 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.ArchiveShowController.archives', args=[{}]}
-2020-08-09 14:03:43.502  INFO 25408 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : archives
-2020-08-09 14:03:44.602  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:03:44.608  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:03:46.398  INFO 25408 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.AboutShowController.about', args=[]}
-2020-08-09 14:03:46.407  INFO 25408 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : about
-2020-08-09 14:03:47.593  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:03:47.599  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:17:55.969  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
-2020-08-09 14:17:56.052  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : index
-2020-08-09 14:17:59.166  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:17:59.170  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:18:04.394  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
-2020-08-09 14:18:04.427  INFO 25408 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:18:04.686  INFO 25408 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 1, {}]}
-2020-08-09 14:18:04.730  INFO 25408 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:18:07.646  INFO 25408 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:18:07.650  INFO 25408 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:18:11.874  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, -1, {}]}
-2020-08-09 14:18:11.919  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : tags
-2020-08-09 14:18:12.156  INFO 25408 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 1, {}]}
-2020-08-09 14:18:12.187  INFO 25408 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : tags
-2020-08-09 14:18:13.760  INFO 25408 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:18:13.765  INFO 25408 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:18:15.967  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.ArchiveShowController.archives', args=[{}]}
-2020-08-09 14:18:15.981  INFO 25408 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : archives
-2020-08-09 14:18:17.281  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:18:17.285  INFO 25408 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:18:20.535  INFO 25408 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.AboutShowController.about', args=[]}
-2020-08-09 14:18:20.537  INFO 25408 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : about
-2020-08-09 14:18:22.243  INFO 25408 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:18:22.250  INFO 25408 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:21:00.731  INFO 10876 --- [restartedMain] com.lz.BlogApplication                   : Starting BlogApplication on G1TWC9SIQP8HSZ7 with PID 10876 (E:\Github_Java\springboot合辑\个人博客2\8\blog-master\target\classes started by Administrator in E:\Github_Java\springboot合辑\个人博客2\8\blog-master)
-2020-08-09 14:21:00.741  INFO 10876 --- [restartedMain] com.lz.BlogApplication                   : The following profiles are active: dev
-2020-08-09 14:21:00.863  INFO 10876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-08-09 14:21:00.863  INFO 10876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-08-09 14:21:07.063  INFO 10876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-08-09 14:21:07.141  INFO 10876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-08-09 14:21:07.142  INFO 10876 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-08-09 14:21:07.687  INFO 10876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-08-09 14:21:07.690  INFO 10876 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6826 ms
-2020-08-09 14:21:11.208  INFO 10876 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-09 14:21:11.701  INFO 10876 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-08-09 14:21:14.003  INFO 10876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-08-09 14:21:14.280  INFO 10876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-08-09 14:21:14.296  INFO 10876 --- [restartedMain] com.lz.BlogApplication                   : Started BlogApplication in 15.024 seconds (JVM running for 17.662)
-2020-08-09 14:22:00.881  INFO 10876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-08-09 14:22:00.881  INFO 10876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-08-09 14:22:00.943  INFO 10876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 61 ms
-2020-08-09 14:22:01.023  INFO 10876 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.AboutShowController.about', args=[]}
-2020-08-09 14:22:01.055  INFO 10876 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : about
-2020-08-09 14:22:04.177  INFO 10876 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:22:04.311  INFO 10876 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-08-09 14:22:04.804  INFO 10876 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-08-09 14:22:04.938  INFO 10876 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:32:34.889  INFO 22684 --- [restartedMain] com.lz.BlogApplication                   : Starting BlogApplication on G1TWC9SIQP8HSZ7 with PID 22684 (E:\Github_Java\springboot合辑\个人博客2\8\blog-master\target\classes started by Administrator in E:\Github_Java\springboot合辑\个人博客2\8\blog-master)
-2020-08-09 14:32:34.893  INFO 22684 --- [restartedMain] com.lz.BlogApplication                   : The following profiles are active: dev
-2020-08-09 14:32:34.975  INFO 22684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-08-09 14:32:34.975  INFO 22684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-08-09 14:32:37.056  INFO 22684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-08-09 14:32:37.068  INFO 22684 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-08-09 14:32:37.069  INFO 22684 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-08-09 14:32:37.199  INFO 22684 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-08-09 14:32:37.200  INFO 22684 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2224 ms
-2020-08-09 14:32:38.239  INFO 22684 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-09 14:32:38.361  INFO 22684 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-08-09 14:32:39.055  INFO 22684 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-08-09 14:32:39.116  INFO 22684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-08-09 14:32:39.119  INFO 22684 --- [restartedMain] com.lz.BlogApplication                   : Started BlogApplication in 6.008 seconds (JVM running for 9.674)
-2020-08-09 14:32:46.357  INFO 22684 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-08-09 14:32:46.357  INFO 22684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-08-09 14:32:46.426  INFO 22684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 68 ms
-2020-08-09 14:32:46.515  INFO 22684 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.AboutShowController.about', args=[]}
-2020-08-09 14:32:46.537  INFO 22684 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : about
-2020-08-09 14:32:49.085  INFO 22684 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:32:49.220  INFO 22684 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-08-09 14:32:49.525  INFO 22684 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-08-09 14:32:49.646  INFO 22684 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:32:51.091  INFO 22684 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
-2020-08-09 14:32:51.330  INFO 22684 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : index
-2020-08-09 14:32:52.772  INFO 22684 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:32:52.780  INFO 22684 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:33:08.348  INFO 22684 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
-2020-08-09 14:33:08.406  INFO 22684 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:33:08.636  INFO 22684 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 1, {}]}
-2020-08-09 14:33:08.666  INFO 22684 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:33:09.704  INFO 22684 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:33:09.709  INFO 22684 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:33:10.329  INFO 22684 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, -1, {}]}
-2020-08-09 14:33:10.366  INFO 22684 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : tags
-2020-08-09 14:33:10.629  INFO 22684 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 1, {}]}
-2020-08-09 14:33:10.683  INFO 22684 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : tags
-2020-08-09 14:33:11.556  INFO 22684 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:33:11.562  INFO 22684 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:33:12.427  INFO 22684 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
-2020-08-09 14:33:12.447  INFO 22684 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:33:12.670  INFO 22684 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 1, {}]}
-2020-08-09 14:33:12.717  INFO 22684 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:33:13.562  INFO 22684 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:33:13.570  INFO 22684 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:33:14.720  INFO 22684 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 2, {}]}
-2020-08-09 14:33:14.787  INFO 22684 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : types
-2020-08-09 14:33:15.914  INFO 22684 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:33:15.918  INFO 22684 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 14:33:19.852  INFO 22684 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.AboutShowController.about', args=[]}
-2020-08-09 14:33:19.854  INFO 22684 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : about
-2020-08-09 14:33:20.981  INFO 22684 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 14:33:20.986  INFO 22684 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 15:11:57.980  INFO 19568 --- [restartedMain] com.lz.BlogApplication                   : Starting BlogApplication on G1TWC9SIQP8HSZ7 with PID 19568 (E:\javacode\project\基于SpringBoot的小而美的博客\blog-master\target\classes started by Administrator in E:\javacode\project\基于SpringBoot的小而美的博客\blog-master)
-2020-08-09 15:11:58.008  INFO 19568 --- [restartedMain] com.lz.BlogApplication                   : The following profiles are active: dev
-2020-08-09 15:11:58.086  INFO 19568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-08-09 15:11:58.086  INFO 19568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-08-09 15:12:00.172  INFO 19568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-08-09 15:12:00.190  INFO 19568 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-08-09 15:12:00.190  INFO 19568 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
-2020-08-09 15:12:00.371  INFO 19568 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-08-09 15:12:00.372  INFO 19568 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2285 ms
-2020-08-09 15:12:01.324  INFO 19568 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-09 15:12:01.444  INFO 19568 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-08-09 15:12:02.102  INFO 19568 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-08-09 15:12:02.163  INFO 19568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-08-09 15:12:02.167  INFO 19568 --- [restartedMain] com.lz.BlogApplication                   : Started BlogApplication in 5.604 seconds (JVM running for 7.648)
-2020-08-09 15:13:04.606  INFO 19568 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-08-09 15:13:04.607  INFO 19568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-08-09 15:13:04.651  INFO 19568 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 44 ms
-2020-08-09 15:13:04.982  INFO 19568 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
-2020-08-09 15:13:05.001  INFO 19568 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-08-09 15:13:05.198  INFO 19568 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-08-09 15:13:05.426  INFO 19568 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : index
-2020-08-09 15:13:07.363  INFO 19568 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 15:13:07.371  INFO 19568 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 15:13:09.572  INFO 19568 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.blog', args=[5, {}]}
-2020-08-09 15:13:09.645  INFO 19568 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : blog
-2020-08-09 15:13:10.679  INFO 19568 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
-2020-08-09 15:13:10.687  INFO 19568 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
-2020-08-09 15:13:10.951  INFO 19568 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/5', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.CommentController.comments', args=[5, {}]}
-2020-08-09 15:13:10.970  INFO 19568 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : blog :: commentList
+2020-08-20 14:23:08.756  INFO 13004 --- [restartedMain] com.lz.BlogApplication                   : Starting BlogApplication on G1TWC9SIQP8HSZ7 with PID 13004 (E:\javacode\project\MyBlog\target\classes started by Administrator in E:\javacode\project\MyBlog)
+2020-08-20 14:23:08.767  INFO 13004 --- [restartedMain] com.lz.BlogApplication                   : The following profiles are active: dev
+2020-08-20 14:23:08.993  INFO 13004 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-08-20 14:23:08.994  INFO 13004 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-08-20 14:23:10.393  INFO 13004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2020-08-20 14:23:10.504  INFO 13004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104ms. Found 1 Elasticsearch repository interfaces.
+2020-08-20 14:23:10.512  INFO 13004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2020-08-20 14:23:10.527  INFO 13004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Reactive Elasticsearch repository interfaces.
+2020-08-20 14:23:11.969  INFO 13004 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-08-20 14:23:11.985  INFO 13004 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-20 14:23:11.985  INFO 13004 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-08-20 14:23:12.155  INFO 13004 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-20 14:23:12.155  INFO 13004 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3160 ms
+2020-08-20 14:23:13.387  INFO 13004 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : no modules loaded
+2020-08-20 14:23:13.388  INFO 13004 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2020-08-20 14:23:13.389  INFO 13004 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2020-08-20 14:23:13.389  INFO 13004 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2020-08-20 14:23:13.389  INFO 13004 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2020-08-20 14:23:13.389  INFO 13004 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020-08-20 14:23:16.116  INFO 13004 --- [restartedMain] o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 127.0.0.1:9300
+2020-08-20 14:23:18.473  INFO 13004 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-08-20 14:23:18.500 ERROR 13004 --- [restartedMain] .d.e.r.s.AbstractElasticsearchRepository : failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [{#transport#-1}{eNQHDMaUSeeVqxKtIxcGZg}{localhost}{127.0.0.1:9300}]
+2020-08-20 14:23:19.064  INFO 13004 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-20 14:23:19.245  INFO 13004 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-20 14:23:20.947  INFO 13004 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-08-20 14:23:20.950  INFO 13004 --- [restartedMain] com.lz.BlogApplication                   : Started BlogApplication in 13.397 seconds (JVM running for 15.283)
+2020-08-20 14:23:51.629  INFO 13004 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-20 14:23:51.629  INFO 13004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-20 14:23:51.649  INFO 13004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
+2020-08-20 14:23:51.708  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
+2020-08-20 14:23:51.725  INFO 13004 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-20 14:23:51.966  INFO 13004 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-20 14:23:52.236  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : index
+2020-08-20 14:23:54.244  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:23:54.249  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:23:57.152  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-08-20 14:23:57.228  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:23:57.541  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:23:57.576  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:23:58.313  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:23:58.320  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:12.993  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/6', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.blog', args=[6, {}]}
+2020-08-20 14:24:13.221  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : blog
+2020-08-20 14:24:13.447  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.blog', args=[11, {}]}
+2020-08-20 14:24:13.551 ERROR 13004 --- [http-nio-8080-exec-2] c.lz.handler.ControllerExceptionHandler  : Requst URL : http://localhost:8080/blog/11，Exception : {}
+
+com.lz.NotFoundException: 该博客不存在
+	at com.lz.service.impl.BlogServiceImpl.getDetailedBlog(BlogServiceImpl.java:171)
+	at com.lz.controller.IndexController.blog(IndexController.java:107)
+	at com.lz.controller.IndexController$$FastClassBySpringCGLIB$$4f18b84f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.lz.controller.IndexController$$EnhancerBySpringCGLIB$$596aa81c.blog(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-08-20 14:24:13.559  WARN 13004 --- [http-nio-8080-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.lz.NotFoundException: 该博客不存在]
+2020-08-20 14:24:13.767  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.blog', args=[11, {}]}
+2020-08-20 14:24:13.769 ERROR 13004 --- [http-nio-8080-exec-9] c.lz.handler.ControllerExceptionHandler  : Requst URL : http://localhost:8080/blog/11，Exception : {}
+
+com.lz.NotFoundException: 该博客不存在
+	at com.lz.service.impl.BlogServiceImpl.getDetailedBlog(BlogServiceImpl.java:171)
+	at com.lz.controller.IndexController.blog(IndexController.java:107)
+	at com.lz.controller.IndexController$$FastClassBySpringCGLIB$$4f18b84f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.lz.controller.IndexController$$EnhancerBySpringCGLIB$$596aa81c.blog(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-08-20 14:24:13.773  WARN 13004 --- [http-nio-8080-exec-9] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [com.lz.NotFoundException: 该博客不存在]
+2020-08-20 14:24:14.552  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:14.559  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:14.793  INFO 13004 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/6', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.CommentController.comments', args=[6, {}]}
+2020-08-20 14:24:14.826  INFO 13004 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : blog :: commentList
+2020-08-20 14:24:22.620  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
+2020-08-20 14:24:22.695  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : index
+2020-08-20 14:24:23.669  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:23.674  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:26.855  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/7', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.blog', args=[7, {}]}
+2020-08-20 14:24:26.889  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : blog
+2020-08-20 14:24:28.468  INFO 13004 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:28.479  INFO 13004 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:32.239  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-08-20 14:24:32.279  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:32.488  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:24:32.546  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:33.325  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:33.330  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:39.449  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, -1, {}]}
+2020-08-20 14:24:39.485  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:24:40.422  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:40.433  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:42.445  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/5', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 5, {}]}
+2020-08-20 14:24:42.474  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:24:42.685  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 11, {}]}
+2020-08-20 14:24:42.702  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:24:43.401  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:43.404  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:44.131  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/7', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 7, {}]}
+2020-08-20 14:24:44.155  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:24:45.309  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:45.312  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:46.266  INFO 13004 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-08-20 14:24:46.284  INFO 13004 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:46.460  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:24:46.489  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:46.578  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:24:46.588  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:47.186  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:47.199  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:47.906  INFO 13004 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 2, {}]}
+2020-08-20 14:24:47.937  INFO 13004 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:49.377  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 2, {}]}
+2020-08-20 14:24:49.391  INFO 13004 --- [http-nio-8080-exec-2] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:49.818  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:49.821  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:50.678  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:50.681  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:51.650  INFO 13004 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/5', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 5, {}]}
+2020-08-20 14:24:51.823  INFO 13004 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:52.691  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:52.694  INFO 13004 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:24:54.039  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 1, {}]}
+2020-08-20 14:24:54.056  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:54.248  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:24:54.271  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:54.353  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:24:54.372  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:24:54.983  INFO 13004 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:24:54.987  INFO 13004 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:25:02.544  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, -1, {}]}
+2020-08-20 14:25:02.572  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:25:03.677  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:25:03.681  INFO 13004 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:25:07.362  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/5', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 5, {}]}
+2020-08-20 14:25:07.387  INFO 13004 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:25:07.622  INFO 13004 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 11, {}]}
+2020-08-20 14:25:07.650  INFO 13004 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:25:07.716  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 11, {}]}
+2020-08-20 14:25:07.731  INFO 13004 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 14:25:08.461  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:25:08.464  INFO 13004 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 14:28:12.391  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-08-20 14:28:12.409  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:28:12.666  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 14:28:12.687  INFO 13004 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 14:28:14.420  INFO 13004 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 14:28:14.428  INFO 13004 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 16:18:19.987  INFO 15660 --- [restartedMain] com.lz.BlogApplication                   : Starting BlogApplication on G1TWC9SIQP8HSZ7 with PID 15660 (E:\javacode\project\MyBlog\target\classes started by Administrator in E:\javacode\project\MyBlog)
+2020-08-20 16:18:19.991  INFO 15660 --- [restartedMain] com.lz.BlogApplication                   : The following profiles are active: dev
+2020-08-20 16:18:20.129  INFO 15660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-08-20 16:18:20.130  INFO 15660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-08-20 16:18:21.435  INFO 15660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2020-08-20 16:18:21.577  INFO 15660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135ms. Found 1 Elasticsearch repository interfaces.
+2020-08-20 16:18:21.608  INFO 15660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2020-08-20 16:18:21.626  INFO 15660 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 Reactive Elasticsearch repository interfaces.
+2020-08-20 16:18:23.407  INFO 15660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-08-20 16:18:23.424  INFO 15660 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-08-20 16:18:23.424  INFO 15660 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-08-20 16:18:23.640  INFO 15660 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-08-20 16:18:23.641  INFO 15660 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3511 ms
+2020-08-20 16:18:25.024  INFO 15660 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : no modules loaded
+2020-08-20 16:18:25.026  INFO 15660 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2020-08-20 16:18:25.026  INFO 15660 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2020-08-20 16:18:25.026  INFO 15660 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2020-08-20 16:18:25.026  INFO 15660 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2020-08-20 16:18:25.026  INFO 15660 --- [restartedMain] o.elasticsearch.plugins.PluginsService   : loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020-08-20 16:18:27.874  INFO 15660 --- [restartedMain] o.s.d.e.c.TransportClientFactoryBean     : Adding transport node : 127.0.0.1:9300
+2020-08-20 16:18:30.370  INFO 15660 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-08-20 16:18:30.395 ERROR 15660 --- [restartedMain] .d.e.r.s.AbstractElasticsearchRepository : failed to load elasticsearch nodes : org.elasticsearch.client.transport.NoNodeAvailableException: None of the configured nodes are available: [{#transport#-1}{hngDLbEqTSeF_bz7JvvOvg}{localhost}{127.0.0.1:9300}]
+2020-08-20 16:18:31.002  INFO 15660 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-20 16:18:31.169  INFO 15660 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-08-20 16:18:32.914  INFO 15660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-08-20 16:18:32.917  INFO 15660 --- [restartedMain] com.lz.BlogApplication                   : Started BlogApplication in 14.545 seconds (JVM running for 17.114)
+2020-08-20 16:18:41.245  INFO 15660 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-20 16:18:41.246  INFO 15660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-08-20 16:18:41.288  INFO 15660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 40 ms
+2020-08-20 16:18:41.385  INFO 15660 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.index', args=[1, {}]}
+2020-08-20 16:18:41.413  INFO 15660 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-08-20 16:18:41.757  INFO 15660 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-08-20 16:18:42.105  INFO 15660 --- [http-nio-8080-exec-1] com.lz.aspect.LogAspect                  : Result : index
+2020-08-20 16:18:44.780  INFO 15660 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 16:18:44.794  INFO 15660 --- [http-nio-8080-exec-9] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 16:18:45.997  INFO 15660 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-08-20 16:18:46.115  INFO 15660 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:46.544  INFO 15660 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 16:18:46.569  INFO 15660 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:46.744  INFO 15660 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 16:18:46.771  INFO 15660 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:47.643  INFO 15660 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 16:18:47.650  INFO 15660 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 16:18:48.371  INFO 15660 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, -1, {}]}
+2020-08-20 16:18:48.421  INFO 15660 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 16:18:49.371  INFO 15660 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 16:18:49.377  INFO 15660 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 16:18:50.091  INFO 15660 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/5', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 5, {}]}
+2020-08-20 16:18:50.120  INFO 15660 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 16:18:50.321  INFO 15660 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 11, {}]}
+2020-08-20 16:18:50.354  INFO 15660 --- [http-nio-8080-exec-10] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 16:18:50.476  INFO 15660 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TagShowController.tags', args=[1, 11, {}]}
+2020-08-20 16:18:50.503  INFO 15660 --- [http-nio-8080-exec-6] com.lz.aspect.LogAspect                  : Result : tags
+2020-08-20 16:18:51.197  INFO 15660 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 16:18:51.200  INFO 15660 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 16:18:51.967  INFO 15660 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-08-20 16:18:51.996  INFO 15660 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:52.249  INFO 15660 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 16:18:52.271  INFO 15660 --- [http-nio-8080-exec-7] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:52.416  INFO 15660 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/11', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 11, {}]}
+2020-08-20 16:18:52.431  INFO 15660 --- [http-nio-8080-exec-4] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:53.113  INFO 15660 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 16:18:53.117  INFO 15660 --- [http-nio-8080-exec-8] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList
+2020-08-20 16:18:54.254  INFO 15660 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.TypeShowController.types', args=[1, 2, {}]}
+2020-08-20 16:18:54.277  INFO 15660 --- [http-nio-8080-exec-3] com.lz.aspect.LogAspect                  : Result : types
+2020-08-20 16:18:55.283  INFO 15660 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Request : {url='http://localhost:8080/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.lz.controller.IndexController.newblogs', args=[{}]}
+2020-08-20 16:18:55.286  INFO 15660 --- [http-nio-8080-exec-5] com.lz.aspect.LogAspect                  : Result : _fragments :: newblogList

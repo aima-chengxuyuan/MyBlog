@@ -34,7 +34,6 @@ public class Comment {
     /**是否是管理员评论*/
     private boolean adminComment;
 
-
     /**用于关联博客*/
     private Long blogId;
     /**父评论编号*/

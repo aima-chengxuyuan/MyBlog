@@ -24,18 +24,24 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> getCommentByBlogId(Long blogId) {
-        //获取该博客下的所有的最高级评论
+        //通过父评论查询评论
         List<Comment> topComments = commentMapper.getCommentByParentCommentIdAndBlogId((long) -1, blogId);
-        //通过blogId查询所有顶级评论
+        //通过blogId查询所有评论
         List<Comment> comments = commentMapper.getCommentByBlogId(blogId);
+        //key：顶级评论的id，value：评论集合
         Map<Long, List<Comment>> topCommentIdMap = new HashMap<>();
         comments.forEach(comment -> {
+            //获取顶级评论的id
             Long topCommentId = comment.getTopCommentId();
+            //先判断map中是否有该顶级评论的id，如果有将对应的评论集合赋给 List<Comment>，如果没有新建一个ArrayList给 List<Comment>
             List<Comment> topCommentList = topCommentIdMap.containsKey(topCommentId) ? topCommentIdMap.get(topCommentId) : new ArrayList<>();
+            //将评论comment添加到topCommentList
             topCommentList.add(comment);
+            //将顶级评论的id和对应的评论集合放入map中
             topCommentIdMap.put(topCommentId, topCommentList);
         });
-        topComments.forEach(topComment -> topComment.setChildComments(topCommentIdMap.get(topComment.getTopCommentId())));
+        //把topCommentList中每个顶级评论的评论设置为每个评论的子评论
+        topComments.forEach(topComment -> topComment.setChildComments(topCommentIdMap.get(topComment.getId())));
         return topComments;
     }
 

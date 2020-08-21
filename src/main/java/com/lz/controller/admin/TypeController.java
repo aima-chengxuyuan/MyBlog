@@ -70,7 +70,7 @@ public class TypeController {
 
     /**
      * 新增分类操作
-     * //没带id的是要添加的
+     * 没带id的是要添加的
      *
      * @param type
      * @param attributes

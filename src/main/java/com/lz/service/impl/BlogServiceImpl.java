@@ -32,7 +32,6 @@ public class BlogServiceImpl implements BlogService {
 
     @Resource
     private EsBlogService esBlogService;
-
     /**
      * @Autowired：ByType
      * @Qualifier：指定name
@@ -64,7 +63,6 @@ public class BlogServiceImpl implements BlogService {
             esBlog.setContent(blog.getContent());
             esBlog.setUpdateTime(nowDate);
             esBlog.setIsDeleted(0);
-
             esBlogService.saveBlog(esBlog);
         }
         //更新的话 只要更新就行
@@ -72,7 +70,6 @@ public class BlogServiceImpl implements BlogService {
             esBlogService.updateBlog(Integer.parseInt(blogId.toString()), blog);
             blog.setUpdateTime(nowDate);
         }
-
     }
 
     @Override
@@ -97,12 +94,12 @@ public class BlogServiceImpl implements BlogService {
         return blogMapper.searchBlog(blog);
     }
 
-
     @Override
     public Integer countBlog() {
         return blogMapper.countBlog();
     }
 
+    //map的key：年份，value：该年份的博客
     @Override
     public Map<String, List<Blog>> archiveBlog() {
         List<String> years = blogMapper.findGroupYear();
@@ -119,16 +116,27 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    //用于表现层显示所有的blog，返回一个map，key是所有存在blog的type，value是对应type的blog集合
     public Map<Long, List<Blog>> getBlogByTypes(List<Type> types) {
+        //1、获取所有type的所有blog
         List<Blog> blogs = blogMapper.getBlogByTypes(types);
+        //2、创建一个map，key：typeid，value：对应的blog集合
         Map<Long, List<Blog>> typeIdBlogsMap = new HashMap<>();
+        //3、将所有存在的typeid和对应的blog集合放入map中
         blogs.forEach(blog -> {
+            //3.1、获取每个blog的typeid
             Long typeId = blog.getTypeId();
+            //3.2、先判断键中是否存在该typeid，如果存在返回对应的value-blog集合，如果不存在新建一个list用来存放对应的blog
             List<Blog> _blogs = typeIdBlogsMap.containsKey(typeId) ? typeIdBlogsMap.get(typeId) : new ArrayList<>();
+            //3.3、将此blog添加到blog集合中
             _blogs.add(blog);
+            //3.4、将键值对放入map中
             typeIdBlogsMap.put(typeId, _blogs);
         });
+        //上面是通过blog得到的type，并将其放入map
+        //对于有些没有blog的type，也需要放入map中，value为新建的空的list
         types.forEach(type -> {
+            //如果Map的键中不存在该type的typeid
             if (!typeIdBlogsMap.containsKey(type.getId())) {
                 typeIdBlogsMap.put(type.getId(), new ArrayList<>());
             }
@@ -173,7 +181,6 @@ public class BlogServiceImpl implements BlogService {
         if (blog == null) {
             throw new NotFoundException("该博客不存在");
         }
-
         // list定义需要指定类型
         List<Tag> tags = new ArrayList();
         String tagIds = blog.getTagIds();
@@ -194,7 +201,6 @@ public class BlogServiceImpl implements BlogService {
             }
             blog.setTags(tags);
         }
-
         String content = blog.getContent();
         blog.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
 

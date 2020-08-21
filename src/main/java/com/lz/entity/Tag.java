@@ -21,5 +21,4 @@ public class Tag {
 
     /**级联关系*/
     private List<Blog> blogs = new ArrayList<>();
-
 }

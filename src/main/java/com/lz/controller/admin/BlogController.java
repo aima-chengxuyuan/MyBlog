@@ -81,15 +81,30 @@ public class BlogController {
         return "admin/blogs";
     }
 
-    //跳转到博客新增页面，同时将分类和标签显示出来
+    /**
+     * 新增，跳转到博客新增编辑页面
+     * 1、先获取所有的tag和type，并新建一个blog，用来传递到前端
+     * 2、跳转到blog的编辑页面admin/blogs-input.html,并将所有的tag和type回显在form表单中，此时blog的中的数据均为null
+     * 3、跳转到blog的编辑页面admin/tags-input.html后，通过post方式提交，form中的action为admin/blogs)
+     * 4、然后会调用Post方法，对blog进行保存
+     * @param model
+     * @return
+     */
     @GetMapping("/blogs/input")
     public String input(Model model) {
         setTypeAndTag(model);
-        model.addAttribute("blog", new Blog());//先初始个blog
+        //先初始个blog
+        model.addAttribute("blog", new Blog());
         return "admin/blogs-input";
     }
 
-    //新增,编辑博客
+    /**
+     * 新增,编辑博客页面
+     * @param blog
+     * @param attributes
+     * @param session
+     * @return
+     */
     @PostMapping("/blogs")
     public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
         //设置用户编号
@@ -114,8 +129,11 @@ public class BlogController {
     }
 
     /**
-     * 跳转到更新页面
-     *
+     * 编辑博客，跳转到blog的编辑页面
+     * 1、先获取所有的tag和type，通过id获取blog，并传递到前端
+     * 2、跳转到blog的编辑页面admin/blogs-input.html,并将所有的tag和type回显在form表单中，此时blog的中的数据均为null
+     * 3、跳转到blog的编辑页面admin/tags-input.html后，通过post方式提交，form中的action为admin/blogs)
+     * 4、然后会调用Post方法，对blog进行保存
      * @param id
      * @param model
      * @return
@@ -132,7 +150,6 @@ public class BlogController {
 
     /**
      * 删除博客
-     *
      * @param id
      * @param attributes
      * @return

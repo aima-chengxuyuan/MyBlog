@@ -20,7 +20,11 @@ public class TypeServiceImpl implements TypeService {
     @Resource
     private TypeMapper typeMapper;
 
+
     @Override
+    //如果类加了这个注解，那么这个类里面的方法抛出异常，就会回滚，数据库里面的数据也会回滚。
+    //如果不配置rollbackFor属性,那么事物只会在遇到RuntimeException的时候才会回滚,
+    //加上rollbackFor=Exception.class,可以让事物在遇到非运行时异常时也回滚
     @Transactional(rollbackFor = Exception.class)
     public List<Type> getAllType() {
         return typeMapper.getAllType();

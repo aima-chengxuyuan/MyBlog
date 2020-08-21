@@ -21,29 +21,38 @@
 
     <!--新增评论-->
     <insert id="saveComment">
-        insert into t_comment values (null,#{nickname},#{email},#{content},#{avatar},#{createTime},#{adminComment},#{blogId},#{replyName},#{parentCommentId},#{topCommentId})
+        insert into t_comment
+        values (null,#{nickname},#{email},#{content},#{avatar},#{createTime},#{adminComment},#{blogId},#{replyName},#{parentCommentId},#{topCommentId})
     </insert>
 
     <!--通过编号获取评论-->
     <select id="getCommentByIdAndBlogId" resultMap="BaseResultMap">
-        select * from t_comment where id=#{id} and blog_id=#{blogId}
+        select *
+        from t_comment
+        where id=#{id} and blog_id=#{blogId}
     </select>
 
-    <!--查询评论通过父评论-->
+    <!--通过父评论查询评论-->
     <select id="getCommentByParentCommentIdAndBlogId" resultMap="BaseResultMap">
-        select * from t_comment where parent_comment_id=#{parentCommentId} and blog_id=#{blogId} order by create_time desc
+        select *
+        from t_comment
+        where parent_comment_id=#{parentCommentId} and blog_id=#{blogId}
+        order by create_time desc
     </select>
 
     <!--查询评论通过顶级评论-->
     <select id="getCommentByTopCommentAndBlogId" resultMap="BaseResultMap">
-        select * from t_comment where top_comment_id=#{topCommentId} and blog_id=#{blogId} order by create_time desc
+        select * from t_comment
+        where top_comment_id=#{topCommentId}
+        and blog_id=#{blogId}
+        order by create_time desc
     </select>
 
 
-    <!--通过blogId查询所有顶级评论-->
+    <!--通过blogId查询所有评论-->
     <select id="getCommentByBlogId" resultMap="BaseResultMap">
-        select * from t_comment where blog_id=#{blogId} order by create_time desc
+        select * from t_comment
+        where blog_id=#{blogId}
+        order by create_time asc
     </select>
-
-
 </mapper>
