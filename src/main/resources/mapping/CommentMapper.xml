@@ -20,7 +20,7 @@
     </resultMap>
 
     <!--新增评论-->
-    <insert id="saveComment">
+    <insert id="saveComment" useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
         insert into t_comment
         values (null,#{nickname},#{email},#{content},#{avatar},#{createTime},#{adminComment},#{blogId},#{replyName},#{parentCommentId},#{topCommentId})
     </insert>

@@ -4,6 +4,7 @@ package com.lz.service.impl;
 import com.lz.entity.Comment;
 import com.lz.mapper.CommentMapper;
 import com.lz.service.CommentService;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,26 +23,40 @@ public class CommentServiceImpl implements CommentService {
     @Resource
     private CommentMapper commentMapper;
 
+    @Resource
+    private RedisTemplate redisTemplate;
+
     @Override
     public List<Comment> getCommentByBlogId(Long blogId) {
         //通过父评论查询评论
-        List<Comment> topComments = commentMapper.getCommentByParentCommentIdAndBlogId((long) -1, blogId);
-        //通过blogId查询所有评论
-        List<Comment> comments = commentMapper.getCommentByBlogId(blogId);
-        //key：顶级评论的id，value：评论集合
-        Map<Long, List<Comment>> topCommentIdMap = new HashMap<>();
-        comments.forEach(comment -> {
-            //获取顶级评论的id
-            Long topCommentId = comment.getTopCommentId();
-            //先判断map中是否有该顶级评论的id，如果有将对应的评论集合赋给 List<Comment>，如果没有新建一个ArrayList给 List<Comment>
-            List<Comment> topCommentList = topCommentIdMap.containsKey(topCommentId) ? topCommentIdMap.get(topCommentId) : new ArrayList<>();
-            //将评论comment添加到topCommentList
-            topCommentList.add(comment);
-            //将顶级评论的id和对应的评论集合放入map中
-            topCommentIdMap.put(topCommentId, topCommentList);
+//        List<Comment> topComments = commentMapper.getCommentByParentCommentIdAndBlogId((long) -1, blogId);
+//        //通过blogId查询所有评论
+//        List<Comment> comments = commentMapper.getCommentByBlogId(blogId);
+//        //key：顶级评论的id，value：评论集合
+//        Map<Long, List<Comment>> topCommentIdMap = new HashMap<>();
+//        comments.forEach(comment -> {
+//            //获取顶级评论的id
+//            Long topCommentId = comment.getTopCommentId();
+//            //先判断map中是否有该顶级评论的id，如果有将对应的评论集合赋给 List<Comment>，如果没有新建一个ArrayList给 List<Comment>
+//            List<Comment> topCommentList = topCommentIdMap.containsKey(topCommentId) ? topCommentIdMap.get(topCommentId) : new ArrayList<>();
+//            //将评论comment添加到topCommentList
+//            topCommentList.add(comment);
+//            //将顶级评论的id和对应的评论集合放入map中
+//            topCommentIdMap.put(topCommentId, topCommentList);
+//        });
+//        //把topCommentList中每个顶级评论的评论设置为每个评论的子评论
+//        topComments.forEach(topComment -> topComment.setChildComments(topCommentIdMap.get(topComment.getId())));
+
+        Long topSize = redisTemplate.opsForList().size(String.valueOf(blogId));
+        List<Comment> topComments = redisTemplate.opsForList()
+                .range(String.valueOf(blogId), 0, topSize);
+
+        topComments.forEach(topComment -> {
+            Long size = redisTemplate.opsForList().size(String.valueOf(topComment.getId()));
+            List<Comment> comments = redisTemplate.opsForList()
+                    .range(String.valueOf(topComment.getId()), 0, size);
+            topComment.setChildComments(comments);
         });
-        //把topCommentList中每个顶级评论的评论设置为每个评论的子评论
-        topComments.forEach(topComment -> topComment.setChildComments(topCommentIdMap.get(topComment.getId())));
         return topComments;
     }
 
@@ -73,11 +88,10 @@ public class CommentServiceImpl implements CommentService {
     public void saveComment(Comment comment) {
         //获取父亲评论
         Long parentCommentId = comment.getParentCommentId();
-        if (parentCommentId == -1) {
+        if (parentCommentId != null && parentCommentId == -1) {
             comment.setParentCommentId(parentCommentId);
             comment.setTopCommentId((long) -1);
         } else {
-            comment.setParentCommentId(parentCommentId);
             //查询上一级评论或回复的情况
             Comment comment1 = commentMapper.getCommentByIdAndBlogId(parentCommentId, comment.getBlogId());
             if (comment1.getTopCommentId() == -1) {
@@ -86,10 +100,23 @@ public class CommentServiceImpl implements CommentService {
             } else {
                 comment.setTopCommentId(comment1.getTopCommentId());
             }
+            comment.setParentCommentId(comment1.getId());
         }
 
         comment.setCreateTime(new Date());
         commentMapper.saveComment(comment);
+
+        // 将评论列表加入redis
+        // 没有父级评论
+        if (parentCommentId != null && parentCommentId == -1) {
+            redisTemplate.opsForList().rightPush(String.valueOf(comment.getBlogId()), comment);
+        }
+        // 有父级评论
+        else {
+            // 父级评论id
+            Long topCommentId = comment.getTopCommentId();
+            redisTemplate.opsForList().rightPush(String.valueOf(topCommentId), comment);
+        }
     }
 
 }

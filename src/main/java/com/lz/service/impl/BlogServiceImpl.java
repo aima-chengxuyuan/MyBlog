@@ -85,8 +85,11 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public void updateBlog(Blog blog) {
-        blog.setUpdateTime(new Date());
+        Date nowDate = new Date();
+        blog.setUpdateTime(nowDate);
         blogMapper.updateBlog(blog);
+        esBlogService.updateBlog(Integer.parseInt(blog.getId().toString()), blog);
+        blog.setUpdateTime(nowDate);
     }
 
     @Override
